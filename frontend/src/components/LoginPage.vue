@@ -10,15 +10,16 @@ const router = useRouter();
 
 const login = async () => {
   try {
-    const response = await axios.post('http://localhost:3000/api/auth/login', {
-      email,
-      password,
+    const response = await axios.post('http://localhost:3000/api/login', {
+      email: email.value,
+      password: password.value,
     });
     
     localStorage.setItem('token', response.data.token);
     localStorage.setItem('user', JSON.stringify(response.data.user));
     router.push('/welcome');
   } catch (err) {
+    console.log(err)
     error.value = err.response?.data?.message || 'Login failed';
   }
 };
