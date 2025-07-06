@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const cors = require("cors");
-const User = require("./models/User");
 const authenticateToken = require("./utils/utils");
-
+const { User } = require("./models/User");
+const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 
